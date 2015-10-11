@@ -12,13 +12,19 @@
     "url": "git+https://github.com/Barbara518/project-two.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "ISC", 
   "bugs": {
     "url": "https://github.com/Barbara518/project-two/issues"
   },
   "homepage": "https://github.com/Barbara518/project-two#readme",
   "dependencies": {
+    "body-parser": "^1.14.1",
+    "ejs": "^2.3.4",
     "express": "^4.13.3",
-    "mongoose": "^4.1.10"
+    "express-ejs-layouts": "^1.1.0",
+    "express-session": "^1.11.3",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.10",
+    "morgan": "^1.6.1"
   }
 }

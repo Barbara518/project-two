@@ -1,0 +1,9 @@
+<body> 
+	<% posts.forEach(function (post, i){ %>
+	<div class= "post"
+		<h3> 
+			<a href="/<%= post._id %>"><%=post.title%></a> 
+		</h3>
+	</div>
+	<% }) %>
+</body>
