@@ -1,9 +1,13 @@
 <body> 
+	<p>This page is here</p>
 	<% posts.forEach(function (post, i){ %>
 	<div class= "post"
 		<h3> 
-			<a href="/<%= post._id %>"><%=post.title%></a> 
+			<a href="/<%= posts._id %>>"<%=post.title%></a> 
 		</h3>
+		<p><%= post.content %></p>
+		<p><%= post.genre %></p>
+		<p><%= post.votes %></p>
 	</div>
 	<% }) %>
 </body>

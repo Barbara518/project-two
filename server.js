@@ -94,36 +94,36 @@ server.get('/create-post', function (req, res, next) {
 	next();
 });
 
-server.get('/all-post', function (req, res, next) {
+server.get('/all-post', function (req, res, next){
 	Post.find({}, function (err, thePosts) {
-		if (err) {
-			console.log("AWWW Shucks something went wrong:");
+		if(err){
 			console.log(err);
 		}else{
 			res.render('all-post', {
-				posts: thePosts
+			posts: thePosts
 			});
 		}
 	});
-	res.render('all-post');
 	next();
 });
 
-server.post('/all-post', function (req, res, next) {
-	var newPost = new Post (req.body.post);
 
-	newPost.save(function (err, postData){
+server.post('/all-post', function (req, res, next) {
+	var post = new Post (req.body.post);
+
+	post.save(function (err, postData){
 		if (err){
 			console.log("oh shoot there was an error:");
 			console.log(err);
 		}else{
-			res.redirect(302, "/all-post");
+			res.redirect(302, "all-post");
 		}
 	});
 
-	res.end();
-	//next();
+	// res.end();
+	next();
 });
+
 
 
 
