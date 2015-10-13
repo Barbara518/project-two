@@ -1,54 +1,58 @@
 var express = require('express'),
     router  = express.Router(),
-    users   = require('../models/users.js');
+    Post   = require('../models/posts.js');
 
 
 /////////////////////////////////////////////////////////////////
 /////////////////////Create a post//////////////////////////////
 ///////////////////////////////////////////////////////////////
 
-router.get('/create-post', function (req, res, next) {
-	res.render('create-post');
-	next();
+router.get('/create', function (req, res, next) {
+	res.render('posts/create');
 });
 
-router.post('/all-post', function (req, res, next) {
-	var post = new Post (req.body.post);
+router.post('/createTheDamnPostIdiot', function (req, res, next) {
+	console.log("i'm in the fucking function, fuck off!")
+	var newPost = new Post(req.body.post);
 
-	post.save(function (err, postData){
+	newPost.save(function (err, postData){
+		console.log(postData);
+		console.log('this shiz is running');
 		if (err){
 			console.log("oh shoot there was an error:");
 			console.log(err);
 		}else{
-			res.redirect(302, "all-post");
+			console.log('saved');
+			console.log(postData);
+			res.redirect(302, '/posts/all');
 		}
 	});
-
-	next();
 });
 
 /////////////////////////////////////////////////////////////////
 /////////////////////show post//////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
-router.get('/all-post', function (req, res, next){
+router.get('/all', function (req, res, next){
 	Post.find({}, function (err, thePosts) {
 		if(err){
 			console.log(err);
+			res.render('posts/all');
 		}else{
-			res.render('all-post', {
-			posts: thePosts
+			res.render('posts/all', {
+			post: thePosts
 			});
 		}
 	});
-	next();
 });
 
+// router.get('/all', function  (req, res) {
+// 	res.render('posts/all');
+// });
 
 
 router.get('/genre', function (req, res, next) {
-	res.render('genre');
-	next();
+	res.render('posts/genre');
 });
 
 

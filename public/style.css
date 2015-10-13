@@ -9,3 +9,13 @@
 	
 }
 
+body {
+	margin-top: 20%;
+
+}
+
+div {
+	border: 5px;
+	border-color: #7BAE23;
+	border-radius: 5px;
+}

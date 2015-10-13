@@ -37,6 +37,11 @@ server.use(bodyParser.urlencoded({
   extended: true
 }));
 
+var postsController = require('./controllers/post.js');
+server.use('/posts', postsController);
+
+var usersController = require('./controllers/user.js');
+server.use('/users', usersController);
 
 
 /////////////////////////////////////////////////////////////////
@@ -44,15 +49,36 @@ server.use(bodyParser.urlencoded({
 ///////////////////////////////////////////////////////////////
 
 mongoose.connect(MONGOURI + "/" + dbname);
+mongoose.set('debug', false);
 
+
+/////////////////////////////////////////////////////////////////
+/////////////////////LOG IT/////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+server.use(function  (req, res, next) {
+	console.log("------------Req----------");
+	console.log("Req.body\n", req.body);
+	console.log("Req.params\n", req.params);
+	console.log("Req.session\n", req.session);
+	console.log("-----------Donezo---------");
+	next();
+
+})
 /////////////////////////////////////////////////////////////////
 /////////////////////ROUTES/////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
 server.get('/', function (req, res, next) {
-	res.render('popular');
-	next();
+	res.render('posts/popular');
 });
+
+///you done goofed
+
+server.use(function (req,res,next) {
+	res.send("YOU DONE GOOFED. I'M CALLING THE CYBER POLICE!")
+	res.end();
+})
 
 /////////////////////////////////////////////////////////////////
 /////////////////////server are you there?//////////////////////

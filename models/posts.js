@@ -7,8 +7,8 @@ var postSchema = new Schema ({
 	content: String,
 	votes: Number,
 	date: {type: Date, default: Date.now}
-})
+});
 
-var Post = mongoose.model('post', postSchema)
+var Post = mongoose.model('post', postSchema);
 
-module.exports = Post
+module.exports = Post;
