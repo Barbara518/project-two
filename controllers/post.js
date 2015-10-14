@@ -61,7 +61,18 @@ router.get('/popular', function (req, res, next) {
 });
 
 router.get('/genre', function (req, res, next) {
-	res.render('posts/genre');
+	//res.render('posts/genre');
+	Post.aggregate({$group: { _id: "$genre" }}).exec(function (err, genres) {
+		if(err){
+			console.log(err);
+			res.render('posts/genre');
+		}else{
+			res.render('posts/genre', {
+			genres: genres
+			});
+			console.log(genres)
+		}
+	});
 });
 
 router.get('/:id', function (req, res, next) {
@@ -70,7 +81,7 @@ router.get('/:id', function (req, res, next) {
       console.log("Ouch");
       console.log(err);
     } else {
-      res.render('post/show', {
+      res.render('posts/show', {
         post: theOnePost
       });
     }

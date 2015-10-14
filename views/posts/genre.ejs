@@ -1,11 +1,5 @@
 <h1> Genres </h1>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Genre</th>
-        <th>Votes</th>
-      </tr>
-    </thead>
-  </table>
+  <% genres.forEach(function (genres){ %>
+   <h1> <a href="/posts/<%= genres._id %>"><%= genres._id %><a/> 
+   </h1>
+  <% }) %>

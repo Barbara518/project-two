@@ -8,10 +8,10 @@
       </tr>
 <% post.forEach(function (post){ %>
       <tr>
-        <th><a href="/<%= post._id %>"><%=post.title%></a></th>
-        <th><%= post.content %></th>
-        <th><%= post.genre %></th>
-        <th><%= post.votes %></th>
+        <td><a href="/posts/<%= post._id %>"><%=post.title%></a></td>
+        <td><%= post.content %></td>
+        <td><%= post.genre %></td>
+        <td><%= post.votes %></td>
       </tr>
 <% }) %>
 	</thead>
