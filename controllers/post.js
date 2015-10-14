@@ -46,10 +46,32 @@ router.get('/all', function (req, res, next){
 	});
 });
 
-// router.get('/all', function  (req, res) {
-// 	res.render('posts/all');
-// });
 
+router.get('/', function (req, res, next) {
+		Post.find({$sort: {votes: -1}, limit: 12}, function (err, thePosts) {
+		if(err){
+			console.log(err);
+			res.render('posts/popular');
+		}else{
+			res.render('posts/popular', {
+			post: thePosts
+			});
+		}
+	});
+});
+
+router.get('/popular', function (req, res, next) {
+		Post.find({$sort: {votes: -1}, limit: 12}, function (err, thePosts) {
+		if(err){
+			console.log(err);
+			res.render('posts/popular');
+		}else{
+			res.render('posts/popular', {
+			post: thePosts
+			});
+		}
+	});
+});
 
 router.get('/genre', function (req, res, next) {
 	res.render('posts/genre');

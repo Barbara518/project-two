@@ -1,0 +1,56 @@
+
+
+
+    if I make a for loop to make a div for post 1-3, 1-6, 1-9, 1-12. can i make a popular page with 4 rows with three colums with pretty boxy divs?
+
+<div class="row">
+    <% for 1, 2, 3 in post { %>
+        <div class="col-md-4 post">
+        	<h3>
+            	<a href="/<%= post._id %>"><%=post.title%></a>
+         	</h3>
+         	<p><%= post.content %></p>
+			<p><%= post.genre %></p>
+			<p><%= post.votes %></p>
+        </div>
+    <% } %>
+</div>
+
+<div class="row">
+    <% for(var i=4; i<7; i++) { %>
+        <div class="col-md-4 post">
+        	<h3>
+            	<a href="/<%= post._id %>"><%=post.title%></a>
+         	</h3>
+         	<p><%= post.content %></p>
+			<p><%= post.genre %></p>
+			<p><%= post.votes %></p>
+        </div>
+    <% } %>
+</div>
+
+<div class="row">
+    <% for(var i=7; i<10; i++) { %>
+        <div class="col-md-4 post">
+        	<h3>
+            	<a href="/<%= post._id %>"><%=post.title%></a>
+         	</h3>
+         	<p><%= post.content %></p>
+			<p><%= post.genre %></p>
+			<p><%= post.votes %></p>
+        </div>
+    <% } %>
+</div>
+
+<div class="row">
+    <% for(var i=10; i<13; i++) { %>
+        <div class="col-md-4 post">
+        	<h3>
+            	<a href="/<%= post._id %>"><%=post.title%></a>
+         	</h3>
+         	<p><%= post.content %></p>
+			<p><%= post.genre %></p>
+			<p><%= post.votes %></p>
+        </div>
+    <% } %>
+</div>

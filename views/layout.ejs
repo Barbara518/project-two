@@ -6,15 +6,15 @@
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<nav class="navbar navbar-inverse">
-  <div class="container">
-  <a class="navbar-brand" href="">Clever Book Pun</a>
-  <a class="navbar-brand" href="posts/popular">Popular</a>
-  <a class="navbar-brand" href="posts/genre">Genre</a>
-  <a class="navbar-brand" href="posts/create">Create Post</a>
-  <a class="navbar-brand" href="/session/login">Login</a>
-  </div>
-</nav>
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="/">Home</a></li>
+  <li role="presentation"><a href="/posts/popular">Popular</a></li>
+  <li role="presentation"><a href="/posts/genre">Genre</a></li>
+  <li role="presentation"><a href="/posts/all">All Posts</a></li>
+  <li role="presentation"><a href="/posts/create">Create Post</a></li>
+  <li role="presentation"><a href="/users/login">Login</a></li>
+</ul>
 <body>
 	<%- body %>
 	<script src="/app.js"></script>

@@ -42,7 +42,7 @@ router.post('/makeMePeople', function (req, res) {
 ///////////////////////////////////////////////////////////////
 
 router.get('/login/:id', function (req, res, next) {
-	res.render('user/welcome');
+	res.render('users/welcome');
 });
 
 module.exports = router

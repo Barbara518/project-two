@@ -3,11 +3,13 @@
 <form action='/SOMEPLACE' method='POST'>
 
 		<p>Username</p>
-    		<input id='username' name='username' type='text' placeholder='username'/>
+    		<input id='username' name='user[username]' type='text' placeholder='username'/>
 
     	<p>Password</p>
-    		<input id='password' name='password' type='text' placeholder='password'/>
-
+    		<input id='password' name='user[password]' type='text' placeholder='password'/>
+</br>
     	<input type="submit">
+</br>
+		<a href="/users/createaccount" class="button">Create Account</a>
 
  </form>

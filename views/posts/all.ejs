@@ -1,11 +1,17 @@
-	<p>This page is here</p>
-	<% post.forEach(function (post){ %>
-	<div class= "post"
-		<h3> 
-			<a href="/<%= post._id %>"><%=post.title%></a> 
-		</h3>
-		<p><%= post.content %></p>
-		<p><%= post.genre %></p>
-		<p><%= post.votes %></p>
-	</div>
-	<% }) %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Genre</th>
+        <th>Votes</th>
+      </tr>
+<% post.forEach(function (post){ %>
+      <tr>
+        <th><a href="/<%= post._id %>"><%=post.title%></a></th>
+        <th><%= post.content %></th>
+        <th><%= post.genre %></th>
+        <th><%= post.votes %></th>
+      </tr>
+<% }) %>
+	</thead>

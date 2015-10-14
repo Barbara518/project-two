@@ -1,6 +1,17 @@
-<h1> Popular entries will be on this page</h1> 
-
-</br>
-<h1>
-Will be home page and first page after LOGIN</h1>
-
+  <table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Genre</th>
+        <th>Votes</th>
+      </tr>
+<% post.forEach(function (post){ %>
+      <tr>
+        <th><a href="/<%= post._id %>"><%=post.title%></a></th>
+        <th><%= post.content %></th>
+        <th><%= post.genre %></th>
+        <th><%= post.votes %></th>
+      </tr>
+<% }) %>
+    </thead>
