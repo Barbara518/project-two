@@ -5,7 +5,7 @@ var postSchema = new Schema ({
 	title: String,
 	genre: String,
 	content: String,
-	votes: Number,
+	votes: {type: Number, default: 0},
 	date: {type: Date, default: Date.now}
 });
 

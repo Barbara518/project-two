@@ -1,6 +1,6 @@
 var express = require('express'),
     router  = express.Router(),
-    users   = require('../models/users.js');
+    User   = require('../models/users.js');
 
 /////////////////////////////////////////////////////////////////
 /////////////////////User LOG In//////////////////////////////
@@ -19,7 +19,7 @@ router.get('/createAccount', function (req, res, next) {
 });
 
 router.post('/makeMePeople', function (req, res) {
-	console.log("I'll like dancing on tabletops while listening to Lionel Richie...")
+	console.log("I'll like dancing on tabletops while listening to Kenny G...")
 	var newUser = new User(req.body.user);
 
 	newUser.save(function (err, userData){
@@ -30,11 +30,13 @@ router.post('/makeMePeople', function (req, res) {
 			console.log(err);
 		}else{
 			console.log('saved');
-			console.log(postData);
+			console.log(userData);
 			res.redirect(302, '/users/welcome');
 		}
 	});
 });
+
+
 /////////////////////////////////////////////////////////////////
 /////////////////////User LOGGED In/////////////////////////////
 ///////////////////////////////////////////////////////////////
