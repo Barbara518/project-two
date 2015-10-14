@@ -7,6 +7,9 @@
 			<p><%= post.votes %></p>
         </div>
 
+        <form class="+1" method="post" action="/posts/<%=post._id%>?_method=PATCH" >
+                <input  type="submit" value="+1" >
+
         <a href= "/posts/<%=post._id%>/edit">Edit</a>
 		</div>
 		<form class="delete-button" method="post" action="/posts/<%=post._id%>?_method=DELETE" >

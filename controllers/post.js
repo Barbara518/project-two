@@ -98,5 +98,16 @@ router.delete('/:id', function (req, res, next) {
 	}) 
 });
 
+router.patch('/:id', function (req, res, next) {
+	Post.findByIdAndUpdate(req.params.id, { $inc: { votes: 1 }}, function(err){
+		if(err) {
+			console.log("It was not even that good");
+		} else {
+			res.redirect(302, '/posts/all');
+			console.log('level up')
+		}
+	}) 
+});
+
 
 module.exports = router

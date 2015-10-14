@@ -62,6 +62,7 @@ mongoose.set('debug', false);
 // 	console.log("Req.params\n", req.params);
 // 	console.log("Req.session\n", req.session);
 // 	console.log("-----------Donezo---------");
+// 	console.log(req.session.currentUser);
 // 	next();
 
 // })

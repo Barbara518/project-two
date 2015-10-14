@@ -41,10 +41,30 @@ router.post('/makeMePeople', function (req, res) {
 /////////////////////User LOGGED In/////////////////////////////
 ///////////////////////////////////////////////////////////////
 
+
+router.get('/loggedIn', function (req, res, next) {
+	res.render('user/loggedIn');
+});
+
+router.post('/login', function (req, res, next) {
+	var entered = req.body.user;
+
+	User.findOne({username: entered.username}, function (err, user){
+		if (user && user.password === entered.password){
+			console.log('Wait I think I know you!');
+			req.session.currentUser = user.username;
+
+			res.redirect(301, '/users/loggedIn')
+		}else{
+			console.log('WHO ARE YOU??? Get out!');
+			res.redirect(301, '/users/login')
+		}
+	})
+});
+
 router.get('/:id', function (req, res, next) {
 	User.findById(req.params.id, function (err, user){
 		console.log('I made you now go be free')
 	})
 });
-
 module.exports = router
