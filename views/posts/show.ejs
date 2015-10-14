@@ -1,0 +1,9 @@
+<% post.forEach { %>
+        <div class="post">
+        	<h1><%=post.title%></h1>
+         	<p><%= post.content %></p>
+         	</br>
+			<p><%= post.genre %></p>
+			<p><%= post.votes %></p>
+        </div>
+    <% } %>

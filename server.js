@@ -56,15 +56,15 @@ mongoose.set('debug', false);
 /////////////////////LOG IT/////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
-server.use(function  (req, res, next) {
-	console.log("------------Req----------");
-	console.log("Req.body\n", req.body);
-	console.log("Req.params\n", req.params);
-	console.log("Req.session\n", req.session);
-	console.log("-----------Donezo---------");
-	next();
+// server.use(function  (req, res, next) {
+// 	console.log("------------Req----------");
+// 	console.log("Req.body\n", req.body);
+// 	console.log("Req.params\n", req.params);
+// 	console.log("Req.session\n", req.session);
+// 	console.log("-----------Donezo---------");
+// 	next();
 
-})
+// })
 /////////////////////////////////////////////////////////////////
 /////////////////////ROUTES/////////////////////////////////////
 ///////////////////////////////////////////////////////////////
