@@ -31,7 +31,7 @@ router.post('/makeMePeople', function (req, res) {
 		}else{
 			console.log('saved');
 			console.log(userData);
-			res.redirect(302, '/users/welcome');
+			res.redirect(302, '/user/' + user._id);
 		}
 	});
 });
@@ -41,8 +41,10 @@ router.post('/makeMePeople', function (req, res) {
 /////////////////////User LOGGED In/////////////////////////////
 ///////////////////////////////////////////////////////////////
 
-router.get('/login/:id', function (req, res, next) {
-	res.render('users/welcome');
+router.get('/:id', function (req, res, next) {
+	User.findById(req.params.id, function (err, user){
+		console.log('I made you now go be free')
+	})
 });
 
 module.exports = router

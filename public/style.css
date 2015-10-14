@@ -20,3 +20,12 @@ body {
 	border-radius: 5px;
 }
 
+input#title{
+	width: 40%;
+	height: 30px;
+}
+
+input#content{
+	width: 40%;
+    height: 100px;
+}

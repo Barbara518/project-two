@@ -88,4 +88,15 @@ router.get('/:id', function (req, res, next) {
   });
 })
 
+router.delete('/:id', function (req, res, next) {
+	Post.findByIdAndRemove(req.params.id, function(err){
+		if(err) {
+			console.log("It won't leave! Make it go away!");
+		} else {
+			res.redirect(302, '/posts/all');
+		}
+	}) 
+});
+
+
 module.exports = router

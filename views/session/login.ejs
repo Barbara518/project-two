@@ -1,14 +1,14 @@
 <h1> Please log in </h1>
 
-<form action='/SOMEPLACE' method='POST'>
+<form action='/users/login' method='POST'>
 
 		<p>Username</p>
     		<input id='username' name='user[username]' type='text' placeholder='username'/>
 
     	<p>Password</p>
-    		<input id='password' name='user[password]' type='text' placeholder='password'/>
+    		<input id='password' name='user[password]' type='password' placeholder='password'/>
 </br>
-    	<input type="submit">
+    	<input type="submit" value="Log In">
 </br>
 		<a href="/users/createaccount" class="button">Create Account</a>
 

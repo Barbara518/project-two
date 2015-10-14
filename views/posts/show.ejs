@@ -6,3 +6,8 @@
 			<p><%= post.genre %></p>
 			<p><%= post.votes %></p>
         </div>
+
+        <a href= "/posts/<%=post._id%>/edit">Edit</a>
+		</div>
+		<form class="delete-button" method="post" action="/posts/<%=post._id%>?_method=DELETE" >
+		<input	type="submit" value="delete" >
