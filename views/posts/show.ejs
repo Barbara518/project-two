@@ -1,22 +1,23 @@
 <div class="jumbotron">
   <h2><%=post.title%></h2>
-  <p>   <%=post.author%></p>
+  <h5>Author: <%=post.author || "Anonymous"%></h5>
   <p>   <%= post.content %></p>
-  <p>Votes: <%= post.votes %></p>
+  <h5>Votes: <%= post.votes %></h5>
     <div class="all-the-things">
-
-
-        <form class="magic delete-button" method="post" action="/posts/delete/<%=post._id%>?_method=DELETE" >
-            <input  type="submit" class="btn btn-default" value="Delete" >
-        </form>
 
         <form class="magic +1" method="post" action="/posts/vote/<%=post._id%>?_method=PATCH" >
             <input  type="submit" value="+1" class="btn btn-default" >
+        </form>
+
+        <% if (currentUser === post.author){%>
+        <form class="magic delete-button" method="post" action="/posts/delete/<%=post._id%>?_method=DELETE" >
+            <input  type="submit" class="btn btn-default" value="Delete" >
         </form>
         
         <form class="magic">
         <a href= "/posts/edit/<%=post._id%>" class="btn btn-default">Edit</a>
         </form>  
+        <%}%>
     </div>
 </div>
     
@@ -35,7 +36,7 @@
     </tr>
 <% post.comments.forEach(function (comment){ %>
     <tr>
-        <td><%= comment.author %></td>
+        <td><%= comment.author || "Anonymous" %></td>
         <td><%= comment.comment %></td>
       </tr>
 <% }) %>

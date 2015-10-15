@@ -83,7 +83,8 @@ router.get('/:id', function (req, res, next) {
       console.log(err);
     } else {
       res.render('posts/show', {
-        post: theOnePost
+        post: theOnePost,
+        currentUser: req.session.currentUser
       });
     }
   });
