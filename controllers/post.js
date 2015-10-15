@@ -106,7 +106,7 @@ router.patch('/vote/:id', function (req, res, next) {
 		if(err) {
 			console.log("It was not even that good");
 		} else {
-			res.redirect(302, '/posts/all');
+			res.redirect(302, '/posts/' + req.params.id);
 			console.log('level up')
 		}
 	}) 
@@ -125,7 +125,7 @@ router.patch('/comment/:id', function (req, res, next) {
 			console.log("I refuse your comment is dumb");
 			console.log(err);
 		} else {
-			res.redirect(302, '/posts/all');
+			res.redirect(302, '/posts/' + req.params.id);
 			console.log('oh so constructive!');
 		}
 	}) 
@@ -149,7 +149,7 @@ router.patch('/edit/:id', function(req, res) {
 		if (err) {
 			console.log("Oops I didn't do it");
 		} else {
-			res.redirect(301, '/posts/all');
+			res.redirect(302, '/posts/' + req.params.id);
 			console.log("its fixed ya happy now?");
 		}
 	})
