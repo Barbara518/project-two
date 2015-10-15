@@ -6,6 +6,7 @@
         <th>Content</th>
         <th>Genre</th>
         <th>Votes</th>
+        <th>Comments</th>
       </tr>
 <% post.forEach(function (post){ %>
       <tr>
@@ -13,6 +14,7 @@
         <td><%= post.content %></td>
         <td><%= post.genre %></td>
         <td><%= post.votes %></td>
+        <td><%= post.comments.length%></td>
       </tr>
 <% }) %>
     </thead>
