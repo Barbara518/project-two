@@ -61,7 +61,6 @@ router.get('/popular', function (req, res, next) {
 });
 
 router.get('/genre', function (req, res, next) {
-	//res.render('posts/genre');
 	Post.aggregate({$group: { _id: "$genre" }}).exec(function (err, genres) {
 		if(err){
 			console.log(err);
@@ -88,7 +87,7 @@ router.get('/:id', function (req, res, next) {
   });
 })
 
-router.delete('/:id', function (req, res, next) {
+router.delete('/delete/:id', function (req, res, next) {
 	Post.findByIdAndRemove(req.params.id, function(err){
 		if(err) {
 			console.log("It won't leave! Make it go away!");
@@ -98,7 +97,8 @@ router.delete('/:id', function (req, res, next) {
 	}) 
 });
 
-router.patch('/:id', function (req, res, next) {
+
+router.patch('/vote/:id', function (req, res, next) {
 	Post.findByIdAndUpdate(req.params.id, { $inc: { votes: 1 }}, function(err){
 		if(err) {
 			console.log("It was not even that good");
@@ -108,6 +108,46 @@ router.patch('/:id', function (req, res, next) {
 		}
 	}) 
 });
+
+
+router.patch('/comment/:id', function (req, res, next) {
+	Post.findByIdAndUpdate(req.params.id, 
+		///{$push: {comments: THE GODDAMN COMMENT }}}, 
+		function(err){
+		if(err) {
+			console.log("I refuse your comment is dumb");
+		} else {
+			res.redirect(302, '/posts/all');
+			console.log('oh so constructive!')
+			console.log(Post.comment)
+		}
+	}) 
+});
+
+router.get('/edit/:id', function(req, res) {
+	Post.findById(req.params.id, function(err, thePost){
+		if (err) {
+			console.log("Nah its fine I won't change it");
+		} else {
+			res.render('posts/edit', {
+				post: thePost
+			});
+		}
+	}) 
+});
+///Doesn't edit the post
+router.patch('/edit/:id', function(req, res) {
+	console.log("I'm here what do you need fixed?")
+	Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, thePost){
+		if (err) {
+			console.log("Oops I didn't do it");
+		} else {
+			res.redirect(301, '/posts/all');
+			console.log("its fixed ya happy now?");
+		}
+	})
+}); 
+
 
 
 module.exports = router

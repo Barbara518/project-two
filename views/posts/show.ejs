@@ -1,16 +1,27 @@
 
         <div class="post">
         	<h1><%=post.title%></h1>
+                <h3><%=post.author%></h3>
          	<p><%= post.content %></p>
          	</br>
 			<p><%= post.genre %></p>
 			<p><%= post.votes %></p>
         </div>
 
-        <form class="+1" method="post" action="/posts/<%=post._id%>?_method=PATCH" >
+        <form class="+1" method="post" action="/posts/vote/<%=post._id%>?_method=PATCH" >
                 <input  type="submit" value="+1" >
+        </form>
 
-        <a href= "/posts/<%=post._id%>/edit">Edit</a>
+        <a href= "/posts/edit/<%=post._id%>">Edit</a>
 		</div>
-		<form class="delete-button" method="post" action="/posts/<%=post._id%>?_method=DELETE" >
+	<form class="delete-button" method="post" action="/posts/delete/<%=post._id%>?_method=DELETE" >
 		<input	type="submit" value="delete" >
+        </form>
+
+        
+
+        <form action="/posts/comment/<%=post._id%>?_method=PATCH" method='post'>
+        <input id='comment' name='post[comment][]' type='text' placeholder='comment'/>
+        <input type="submit">
+        </form>
+        

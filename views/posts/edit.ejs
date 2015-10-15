@@ -1,11 +1,12 @@
-<form action='/posts/createTheDamnPostIdiot' method='post'>
+<form action="/posts/edit/<%= post._id %>?_method=PATCH" method="post">
 
-		<p>Title</p>
-    		<input id='title' name='post[title]' type='text' placeholder='title'/> 
+<p>Title</p>
+    		<input id='title' name='post[title]' type='text' value="<%=post.title%>"/> 
 
     	<p>Genre</p>
     		<label for="genre"></label>
     		<select name="post[genre]" id="genre">
+          <option value="<%=post.genre%>"><%=post.genre%></option>
           <option value="Adventure">Adventure</option>
           <option value="Art">Art</option>
           <option value="Audiobooks">Audiobooks</option>
@@ -42,7 +43,7 @@
 
 
     	<p>Content</p>
-    		<input id='content' name='post[content]' type='text' placeholder='content'/>
+    		<input id='content' name='post[content]' type='text' value="<%=post.content%>"/>
         </br>
     	<input type="submit">
 
