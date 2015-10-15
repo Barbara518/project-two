@@ -111,15 +111,15 @@ router.patch('/vote/:id', function (req, res, next) {
 
 
 router.patch('/comment/:id', function (req, res, next) {
-	Post.findByIdAndUpdate(req.params.id, 
-		///{$push: {comments: THE GODDAMN COMMENT }}}, 
+	console.log(req.body.post.comment);
+	Post.findByIdAndUpdate(req.params.id, {$pushAll: {comments: req.body.post.comment}},
+		 
 		function(err){
 		if(err) {
 			console.log("I refuse your comment is dumb");
 		} else {
 			res.redirect(302, '/posts/all');
-			console.log('oh so constructive!')
-			console.log(Post.comment)
+			console.log('oh so constructive!');
 		}
 	}) 
 });
@@ -135,7 +135,7 @@ router.get('/edit/:id', function(req, res) {
 		}
 	}) 
 });
-///Doesn't edit the post
+
 router.patch('/edit/:id', function(req, res) {
 	console.log("I'm here what do you need fixed?")
 	Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, thePost){

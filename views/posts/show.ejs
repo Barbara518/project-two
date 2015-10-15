@@ -25,3 +25,9 @@
         <input type="submit">
         </form>
         
+
+        <div class="comments">
+        <% post.comments.forEach(function (comment){ %>
+      <div class="one-comment"><%= comment %></div>
+<% }) %>
+        </div>
