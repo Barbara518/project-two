@@ -43,7 +43,9 @@ router.post('/makeMePeople', function (req, res) {
 
 
 router.get('/loggedIn', function (req, res, next) {
-	res.render('user/loggedIn');
+	res.render('user/loggedIn',{
+		loggedInUser: req.session.currentUser
+	});
 });
 
 router.post('/login', function (req, res, next) {

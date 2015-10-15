@@ -7,7 +7,10 @@ var postSchema = new Schema ({
 	genre: String,
 	content: String,
 	votes: {type: Number, default: 0},
-	comments: [],
+	comments: [{
+		author: String,
+		comment: String
+		}],
 	date: {type: Date, default: Date.now}
 });
 

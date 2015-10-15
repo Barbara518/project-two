@@ -9,11 +9,13 @@ var express = require('express'),
 
 router.get('/create', function (req, res, next) {
 	res.render('posts/create');
+	console.log(req.session.currentUser)
 });
 
 router.post('/createTheDamnPostIdiot', function (req, res, next) {
 	console.log("i'm in the fucking function, fuck off!")
 	var newPost = new Post(req.body.post);
+	newPost.author = req.session.currentUser;
 
 	newPost.save(function (err, postData){
 		console.log(postData);
@@ -112,11 +114,15 @@ router.patch('/vote/:id', function (req, res, next) {
 
 router.patch('/comment/:id', function (req, res, next) {
 	console.log(req.body.post.comment);
-	Post.findByIdAndUpdate(req.params.id, {$pushAll: {comments: req.body.post.comment}},
+	Post.findByIdAndUpdate(req.params.id, {$push: 
+											{comments: 
+												{author: req.session.currentUser, 
+													comment: req.body.post.comment}}},
 		 
 		function(err){
 		if(err) {
 			console.log("I refuse your comment is dumb");
+			console.log(err);
 		} else {
 			res.redirect(302, '/posts/all');
 			console.log('oh so constructive!');
