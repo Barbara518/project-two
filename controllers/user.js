@@ -35,6 +35,8 @@ router.post('/makeMePeople', function (req, res) {
 	newUser.save(function (err, userData){
 		console.log(userData);
 		console.log('Run Forest Run');
+		res.redirect(302, '/users/createAccount')
+
 		if (err){
 			console.log("oh shoot there was an error:");
 			console.log(err);
