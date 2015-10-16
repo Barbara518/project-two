@@ -41,7 +41,7 @@ router.post('/makeMePeople', function (req, res) {
 		}else{
 			console.log('saved');
 			console.log(userData);
-			res.redirect(302, '/user/' + user._id);
+			res.redirect(302, '/users/login');
 		}
 	});
 });
