@@ -76,6 +76,20 @@ router.get('/genre', function (req, res, next) {
 	});
 });
 
+router.get('/genre/:genre', function (req, res, next) {
+	Post.find({ genre: req.params.genre }, function (err, posts) {
+		if(err){
+			console.log(err);
+			res.render('posts/all');
+		}else{
+			console.log("getting in here")
+			res.render('posts/specific', {
+			posts: posts
+			});
+		}
+	})
+});
+
 router.get('/:id', function (req, res, next) {
 	Post.findById(req.params.id, function (err, theOnePost) {
     if (err) {

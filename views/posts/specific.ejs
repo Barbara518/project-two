@@ -1,0 +1,19 @@
+  <table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Genre</th>
+        <th>Votes</th>
+        <th>Comments</th>
+      </tr>
+<% posts.forEach(function (post){ %>
+      <tr>
+        <td><a href="/posts/<%= post._id %>"><%=post.title%></a></td>
+        <td><%= post.content %></td>
+        <td><%= post.genre %></td>
+        <td><%= post.votes %></td>
+        <td><%= post.comments.length%></td>
+      </tr>
+<% }) %>
+	</thead>
